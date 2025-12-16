@@ -2,6 +2,8 @@
 using namespace std;
 int main()
 {
+
+    // example 1
     // complexity O(nXn)
     // int n; cin >> n;
 
@@ -14,6 +16,7 @@ int main()
     // }
 
 
+    // example 2
     // complexity O(nXm)
     // int n, m; cin >> n >> m;
 
@@ -25,6 +28,7 @@ int main()
     //     }
     // }
 
+    // example 3
     // complexity (nXnXn)
     int n; cin >> n;
 
