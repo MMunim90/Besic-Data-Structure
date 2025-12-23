@@ -20,6 +20,7 @@ int main()
     // cout << "Before: " << x << endl;
     func(p);
     cout << "In Main: " << p << endl;
+    cout << "x: " << x << endl;
     // cout << "After: " << x <<endl;
     return 0;
 }
