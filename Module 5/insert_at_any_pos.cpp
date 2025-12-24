@@ -14,12 +14,19 @@ public:
     }
 };
 
-// complexity O(1)
-void insert_at_first(Node* &head, int val)
+//complexity O(n) , n = idx
+void insert_at_any_pos(Node* &head, int idx, int val)
 {
-    Node *newNode = new Node(val);
-    newNode->next = head;
-    head = newNode;
+    Node* newNode = new Node(val);
+
+    Node* temp = head;
+    for(int i=1; i<idx; i++)
+    {
+        temp = temp->next;
+    }
+
+     newNode->next = temp->next;
+     temp->next = newNode;
 }
 
 void print_list(Node *head)
@@ -41,10 +48,11 @@ int main()
 
     head->next = a;
     a->next = b;
-
-    for(int i=100; i<=500; i+=100)
+    int idx = 2;
+    for(int i=100; i<=200; i+=100)
     {
-        insert_at_first(head, i);
+        insert_at_any_pos(head, idx, i);
+        idx++;
     }
     print_list(head);
 
