@@ -14,19 +14,20 @@ public:
     }
 };
 
-// complexity O(n) , n = idx
-void insert_at_any_pos(Node* &head, int idx, int val)
+// complexity O(1)
+void insert_at_last(Node* &head, Node* &tail, int val)
 {
     Node* newNode = new Node(val);
 
-    Node* temp = head;
-    for(int i=1; i<idx; i++)
+    if(head == NULL)
     {
-        temp = temp->next;
+        head = newNode;
+        tail = newNode;
+        return;
     }
-
-     newNode->next = temp->next;
-     temp->next = newNode;
+    
+    tail->next = newNode;
+    tail = newNode;
 }
 
 void print_list(Node *head)
@@ -44,17 +45,19 @@ int main()
 {
     Node *head = new Node(10);
     Node *a = new Node(20);
-    Node *b = new Node(30);
+    Node *tail = new Node(30);
 
     head->next = a;
-    a->next = b;
-    int idx = 2;
-    for(int i=100; i<=200; i+=100)
+    a->next = tail;
+
+
+
+    for(int i=100; i<=500; i+=100)
     {
-        insert_at_any_pos(head, idx, i);
-        idx++;
+        insert_at_last(head, tail, i);
     }
     print_list(head);
+    cout << "Tail = " << tail->val << endl;
 
     return 0;
 }

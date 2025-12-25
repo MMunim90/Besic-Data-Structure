@@ -14,6 +14,7 @@ public:
     }
 };
 
+// complexity O(n)
 void insert_at_last(Node* &head, int val)
 {
     Node* newNode = new Node(val);
