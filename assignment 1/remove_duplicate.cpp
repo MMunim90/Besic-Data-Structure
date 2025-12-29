@@ -31,10 +31,6 @@ void insert_on_last(Node *&head, Node *&tail, int val)
 
 void remove_duplicate(Node *&head)
 {
-    if(head == NULL)
-    {
-        return;
-    }
     for (Node *i = head; i != NULL; i = i->next)
     {
         Node* prev = i;
@@ -44,7 +40,7 @@ void remove_duplicate(Node *&head)
             if (i->val == j->val)
             {
                 Node* deleteNode = j;
-                prev->next = j->next;
+                prev->next = prev->next->next;
                 j = j->next;
                 delete deleteNode;
             }

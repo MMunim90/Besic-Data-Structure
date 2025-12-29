@@ -29,9 +29,10 @@ void insert_at_head(Node *&head, Node *&tail, int val)
     }
 }
 
-void insert_at_tail(Node *&head, Node *&tail, int val)
+void insert_at_tail(Node* &head, Node* &tail, int val)
 {
     Node *newNode = new Node(val);
+    
     if (tail == NULL)
     {
         head = newNode;
@@ -44,24 +45,37 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
     }
 }
 
-void delete_from_any_pos(Node *&head, int idx)
+void delete_from_any_pos(Node* &head, Node* &tail, int v)
 {
-    Node *temp = head;
-    for (int i = 0; i < idx; i++)
+    Node* temp = head;
+    for (int i = 0; i < v-1; i++)
     {
         temp = temp->next;
     }
 
     Node *deletedNode = temp->next;
+    if(temp->next->next == NULL)
+    {
+        tail = temp;
+    }
     temp->next = temp->next->next;
     delete deletedNode;
 }
 
-void delete_from_head(Node* &head)
+void delete_from_head(Node *&head, Node* &tail)
 {
-    Node* deleteNode = head;
+    Node *deleteNode = head;
 
-    head = head->next;
+    if(head->next == NULL)
+    {
+        head = NULL;
+        tail = NULL;
+        return;
+    }
+    else
+    {
+        head = head->next;
+    }
 
     delete deleteNode;
 }
@@ -77,8 +91,9 @@ int calculate_size(Node *temp)
     return sz;
 }
 
-void print_list(Node *temp)
+void print_list(Node *head)
 {
+    Node* temp = head;
     while (temp != NULL)
     {
         cout << temp->val << " ";
@@ -102,26 +117,32 @@ int main()
         if (x == 0)
         {
             insert_at_head(head, tail, v);
-            // print_list(head);
+            print_list(head);
         }
         else if (x == 1)
         {
             insert_at_tail(head, tail, v);
-            // print_list(head);
+            print_list(head);
         }
         else if (x == 2)
         {
             int sz = calculate_size(head);
-            cout << sz << endl;
-            if (v < 0 || v > sz)
+            if (v >= sz)
             {
-                // print_list(head);
-                continue;
+                print_list(head);
             }
             else
             {
-                delete_from_any_pos(head, v);
-                // print_list(head);
+                if (v == 0)
+                {
+                    delete_from_head(head, tail);
+                    print_list(head);
+                }
+                else
+                {
+                    delete_from_any_pos(head, tail, v);
+                    print_list(head);
+                }
             }
         }
     }
