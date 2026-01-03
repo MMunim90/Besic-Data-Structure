@@ -8,8 +8,6 @@ int main()
 
     for(int i=0; i<n; i++)
     {
-        // int x; cin >> x;
-        // v.push_back(x);
         cin >> v[i];
     }
 
@@ -17,7 +15,7 @@ int main()
 
     for(int i=0; i<n; i++)
     {
-        for(int j=0; j<n; j++)
+        for(int j=1; j<n; j++)
         {
             if(v[i]+1 == v[j])
             {
