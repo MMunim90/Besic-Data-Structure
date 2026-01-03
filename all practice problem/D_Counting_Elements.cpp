@@ -1,5 +1,3 @@
-// complexity O(N)
-
 #include<bits/stdc++.h>
 using namespace std;
 int main()
@@ -7,25 +5,28 @@ int main()
     int n; cin >> n;
 
     vector<int> v(n);
-    for(int i=0; i<n; i++)
-    {
-        cin >> v[i];
-    }
 
     for(int i=0; i<n; i++)
     {
-        if(v[i] > 0)
+        // int x; cin >> x;
+        // v.push_back(x);
+        cin >> v[i];
+    }
+
+    int count = 0;
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
         {
-            cout << "1" << " ";
-        }
-        else if(v[i] < 0)
-        {
-            cout << "2" << " ";
-        }
-        else
-        {
-            cout << "0" << " ";
+            if(v[i]+1 == v[j])
+            {
+                count++;
+                
+            }
         }
     }
+
+    cout << count << endl;
     return 0;
 }
