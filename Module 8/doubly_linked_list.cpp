@@ -16,6 +16,24 @@ class Node
     }
 };
 
+void print_forword(Node* temp)
+{
+    while(temp != NULL)
+    {
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+}
+
+void print_backword(Node* temp)
+{
+    while (temp != NULL)
+    {
+        cout << temp->val << " ";
+        temp = temp->prev;
+    }
+    
+}
 
 int main()
 {
@@ -28,5 +46,9 @@ int main()
 
     a->next = tail;
     tail->prev = a;
+
+    print_forword(head);
+    cout << endl;
+    print_backword(tail);
     return 0;
 }
