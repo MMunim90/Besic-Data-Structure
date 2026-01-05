@@ -16,22 +16,22 @@ class Node
     }
 };
 
-void insert_at_head(Node* &head, Node* &tail, int val)
+void insert_at_tail(Node* &head, Node* &tail, int val)
 {
     Node* newNode = new Node(val);
-
     if(head == NULL)
     {
         head = newNode;
         tail = newNode;
+        return;
     }
 
-    newNode->next = head;
-    head->prev = newNode;
-    head = newNode;
+    tail->next = newNode;
+    newNode->prev = tail;
+    tail = newNode;
 }
 
-void print_forword(Node* temp)
+void print_list(Node* temp)
 {
     while (temp != NULL)
     {
@@ -41,21 +41,23 @@ void print_forword(Node* temp)
     
 }
 
-
 int main()
 {
-    Node* head = new Node(10);
-    Node* a = new Node(20);
-    Node* tail = new Node(30);
+    // Node* head = new Node(10);
+    // Node* a = new Node(20);
+    // Node* tail = new Node(30);
 
-    head->next = a;
-    a->prev = head;
+    // head->next = a;
+    // a->prev = head;
 
-    a->next = tail;
-    tail->prev = a;
+    // a->next = tail;
+    // tail->prev = a;
 
+    Node* head = NULL;
+    Node* tail = NULL;
 
-    insert_at_head(head, tail, 100);
-    print_forword(head);
+    insert_at_tail(head, tail, 40);
+    insert_at_tail(head, tail, 50);
+    print_list(head);
     return 0;
 }
