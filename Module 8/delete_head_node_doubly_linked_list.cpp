@@ -16,6 +16,7 @@ class Node
     }
 };
 
+// complexity O(1)
 void delete_at_head(Node* &head, Node* &tail)
 {
     Node* deleteNode = head;

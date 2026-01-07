@@ -16,6 +16,7 @@ class Node
     }
 };
 
+// complexity O(N)
 void delete_at_any_pos(Node* head, int idx)
 {
     Node* temp = head;

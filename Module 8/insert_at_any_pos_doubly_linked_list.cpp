@@ -16,6 +16,7 @@ class Node
     }
 };
 
+// complexity O(N)
 void insert_at_any_pos(Node* head, int idx, int val)
 {
     Node* newNode = new Node(val);
