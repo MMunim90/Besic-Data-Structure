@@ -28,17 +28,20 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
     tail = newNode;
 }
 
-void make_desc(Node *temp)
+void make_desc(Node *head)
 {
-    while (temp->next->next != NULL)
+    for(Node* i = head; i != NULL; i = i->next)
     {
-        if (temp->val < temp->next->val)
+        Node* current_node = i;
+        for(Node* j = i->next; j != NULL; j = j->next)
         {
-            temp->val = temp->val + temp->next->val;
-            temp->next->val = temp->val - temp->next->val;
-            temp->val = temp->val - temp->next->val;
+            if(current_node->val < j->val)
+            {
+                current_node->val = current_node->val + j->val;
+                j->val = current_node->val - j->val;
+                current_node->val = current_node->val - j->val;
+            }
         }
-        temp = temp->next;
     }
 }
 
