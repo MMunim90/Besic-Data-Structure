@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// complexity of all operation is O(1)
+
 class myStack
 {
     public:
