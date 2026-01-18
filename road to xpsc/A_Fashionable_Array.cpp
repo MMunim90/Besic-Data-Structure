@@ -16,7 +16,7 @@ int main()
         sort(arr, arr+n);
 
 
-        int min = arr[0];
+        int mn = arr[0];
         int max = arr[n-1];
         
         // if(min%2 == 0 && max%2 == 0)
@@ -26,7 +26,7 @@ int main()
 
         // or this way 
 
-        if(min%2 == max%2) cout << 0 << endl;
+        if(mn%2 == max%2) cout << 0 << endl;
         else
         {
             int i=0, cnt = 0;
@@ -36,12 +36,16 @@ int main()
             }
             
             int j=n-1, cnt2 = 0;
-            while (arr[j]%2 != min%2)
+            while (arr[j]%2 != mn%2)
             {
                 j--; cnt2++;
             }
 
-            (cnt > cnt2) ? cout << cnt2 << endl : cout << cnt << endl;
+            // (cnt > cnt2) ? cout << cnt2 << endl : cout << cnt << endl;
+
+            // or this way 
+
+            cout << min(cnt,cnt2) << endl;
         }
     }
     
