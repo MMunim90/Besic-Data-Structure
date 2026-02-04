@@ -67,7 +67,7 @@ void level_order(Node* root)
     
 }
 
-void insert(Node* root, int val)
+void insert(Node* &root, int val)
 {
     if(root == NULL)
         root = new Node(val);
